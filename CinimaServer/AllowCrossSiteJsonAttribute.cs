@@ -11,7 +11,12 @@ namespace CinimaServer
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            filterContext.RequestContext.HttpContext.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            var response = filterContext.HttpContext.Response;
+            response.AddHeader("Access-Control-Allow-Origin", "*");
+            response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+
+
             base.OnActionExecuting(filterContext);
             
         }
