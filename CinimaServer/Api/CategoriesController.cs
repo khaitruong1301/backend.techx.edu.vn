@@ -21,12 +21,15 @@ namespace CinimaServer.Api
         private dbTechXEntities db = new dbTechXEntities();
 
         // GET: api/Categories
+        [HttpGet]
         public IQueryable<Category> GetCategories()
         {
             return db.Categories;
         }
 
         // GET: api/Categories/5
+        [HttpGet]
+
         [ResponseType(typeof(Category))]
         public async Task<IHttpActionResult> GetCategory(string id)
         {
@@ -41,6 +44,8 @@ namespace CinimaServer.Api
 
         // PUT: api/Categories/5
         [ResponseType(typeof(void))]
+        [HttpPut]
+
         public async Task<IHttpActionResult> PutCategory(string id, Category category)
         {
             if (!ModelState.IsValid)
@@ -76,6 +81,7 @@ namespace CinimaServer.Api
 
         // POST: api/Categories
         [ResponseType(typeof(Category))]
+        [HttpPost]
         public async Task<IHttpActionResult> PostCategory(Category category)
         {
             if (!ModelState.IsValid)
@@ -106,6 +112,7 @@ namespace CinimaServer.Api
 
         // DELETE: api/Categories/5
         [ResponseType(typeof(Category))]
+        [HttpDelete]
         public async Task<IHttpActionResult> DeleteCategory(string id)
         {
             Category category = await db.Categories.FindAsync(id);

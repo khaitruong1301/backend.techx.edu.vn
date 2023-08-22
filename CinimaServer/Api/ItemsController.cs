@@ -21,12 +21,12 @@ namespace CinimaServer.Api
         private dbTechXEntities db = new dbTechXEntities();
 
         // GET: api/Items
+        [HttpGet]
         public IQueryable<Item> GetItems()
         {
             return db.Items;
         }
-
-        // GET: api/Items/5
+        [HttpGet]
         [ResponseType(typeof(Item))]
         public async Task<IHttpActionResult> GetItem(string id)
         {
@@ -41,6 +41,7 @@ namespace CinimaServer.Api
 
         // PUT: api/Items/5
         [ResponseType(typeof(void))]
+        [HttpPut]
         public async Task<IHttpActionResult> PutItem(string id, Item item)
         {
             if (!ModelState.IsValid)
@@ -74,6 +75,7 @@ namespace CinimaServer.Api
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [HttpPost]
         // POST: api/Items
         [ResponseType(typeof(Item))]
         public async Task<IHttpActionResult> PostItem(Item item)
@@ -104,6 +106,7 @@ namespace CinimaServer.Api
             return CreatedAtRoute("DefaultApi", new { id = item.id }, item);
         }
 
+        [HttpDelete]
         // DELETE: api/Items/5
         [ResponseType(typeof(Item))]
         public async Task<IHttpActionResult> DeleteItem(string id)

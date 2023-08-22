@@ -20,12 +20,14 @@ namespace CinimaServer.Api
         private dbTechXEntities db = new dbTechXEntities();
 
         // GET: api/GroupCategories
+        [HttpGet]
         public IQueryable<GroupCategory> GetGroupCategories()
         {
             return db.GroupCategories;
         }
 
         // GET: api/GroupCategories/5
+        [HttpGet]
         [ResponseType(typeof(GroupCategory))]
         public async Task<IHttpActionResult> GetGroupCategory(string id)
         {
@@ -39,6 +41,7 @@ namespace CinimaServer.Api
         }
 
         // PUT: api/GroupCategories/5
+        [HttpPut]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutGroupCategory(string id, GroupCategory groupCategory)
         {
@@ -72,6 +75,7 @@ namespace CinimaServer.Api
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        [HttpPost]
 
         // POST: api/GroupCategories
         [ResponseType(typeof(GroupCategory))]
@@ -102,6 +106,7 @@ namespace CinimaServer.Api
 
             return CreatedAtRoute("DefaultApi", new { id = groupCategory.id }, groupCategory);
         }
+        [HttpDelete]
 
         // DELETE: api/GroupCategories/5
         [ResponseType(typeof(GroupCategory))]
