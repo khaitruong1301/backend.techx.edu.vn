@@ -9,17 +9,17 @@ namespace CinimaServer
 {
     public class AllowCrossSiteJsonAttribute : System.Web.Mvc.ActionFilterAttribute
     {
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var response = filterContext.HttpContext.Response;
-            response.AddHeader("Access-Control-Allow-Origin", "*");
-            response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+        //public override void OnActionExecuting(ActionExecutingContext filterContext)
+        //{
+        //    var response = filterContext.HttpContext.Response;
+        //    response.AddHeader("Access-Control-Allow-Origin", "*");
+        //    response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        //    response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
 
 
-            base.OnActionExecuting(filterContext);
+        //    base.OnActionExecuting(filterContext);
             
-        }
+        //}
 
     }
 }
